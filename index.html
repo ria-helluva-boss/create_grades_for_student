@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let grades = [];
+        for (let i = 0; i < 12; i++) {
+        grades.push(Math.floor(Math.random()*100)+1);
+    }
+    console.log(grades);
+    function findАverageNumber(acc,grade,index,arr){
+        const sum = acc + grade ;
+        if (index === arr.length -1){
+            return Math.round(sum / arr.length);
+        };
+        return sum;
+    }
+    const averageNumber = grades.reduce(findАverageNumber,0);
+    console.log(`Средняя оценка: ${averageNumber} `);
+
+    const maxGrade = Math.max(...grades);
+    console.log(`Высший балл:${maxGrade}`);
+
+    const minGrade = Math.min(...grades);
+    console.log(`Низший балл:${minGrade}`);
+
+    const positiveResult = grades.filter(result=>result >= 60);
+    const countPositiveResults = positiveResult.length;
+    console.log(positiveResult);
+    console.log(countPositiveResults);
+
+    const negativeResult = grades.filter(result=>result <= 60);
+    const countNegativeResults = negativeResult.length;
+    console.log(negativeResult);
+    console.log(countNegativeResults);
+
+    const createLetters = grades.map(function changeValue (value){
+        if(value >= 80){
+            return value = `A`;
+        }
+        else if (value <= 79 && value >=60){
+            return value = `B`;
+        }
+        else if (value <= 59 && value >=40){
+            return value = `C`;
+        }
+        else if (value <= 39 && value >=20){
+            return value = `D`;
+        }
+        else{
+            return value = `E`;
+        }
+    }
+    );
+    console.log(createLetters);
+    </script>
+</body>
+</html>
