@@ -12,7 +12,7 @@
         grades.push(Math.floor(Math.random()*100)+1);
     }
     console.log(grades);
-    function findАverageNumber(acc,grade,index,arr){
+    /*function findАverageNumber(acc,grade,index,arr){
         const sum = acc + grade ;
         if (index === arr.length -1){
             return Math.round(sum / arr.length);
@@ -20,8 +20,10 @@
         return sum;
     }
     const averageNumber = grades.reduce(findАverageNumber,0);
+    */
+    const averageNumber = Math.round((grades.reduce((a, b) => a + b, 0)) / grades.length);
     console.log(`Средняя оценка: ${averageNumber} `);
-
+    
     const maxGrade = Math.max(...grades);
     console.log(`Высший балл:${maxGrade}`);
 
@@ -33,7 +35,7 @@
     console.log(positiveResult);
     console.log(countPositiveResults);
 
-    const negativeResult = grades.filter(result=>result <= 60);
+    const negativeResult = grades.filter(result=>result < 60);
     const countNegativeResults = negativeResult.length;
     console.log(negativeResult);
     console.log(countNegativeResults);
